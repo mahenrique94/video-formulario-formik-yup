@@ -13,22 +13,20 @@ const validations = yup.object().shape({
 })
 
 const Form = ({ handleSubmit, initialValues }) => (
-    <Formik initialValues={initialValues} onSubmit={values => handleSubmit(values)} validationSchema={validations}> 
-        {() => (
-            <FormikForm className="Form">
-                <h1 className="Form-Welcome">Welcome</h1>
-                <h2 className="Form-Info">Type your user and password to access the system</h2>
-                <div className="Form-Group">
-                    <Field className="Form-Field" name="user" placeholder="User" type="text"/>
-                    <ErrorMessage className="Form-Error" component="span" name="user"/>
-                </div>
-                <div className="Form-Group">
-                    <Field className="Form-Field" name="password" placeholder="Password" type="password"/>
-                    <ErrorMessage className="Form-Error" component="span" name="password"/>
-                </div>
-                <button className="Form-Btn" type="submit">Login</button>
-            </FormikForm>
-        )}   
+    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validations}>
+        <FormikForm className="Form">
+            <h1 className="Form-Welcome">Welcome</h1>
+            <h2 className="Form-Info">Type your user and password to access the system</h2>
+            <div className="Form-Group">
+                <Field className="Form-Field" name="user" placeholder="User" type="text"/>
+                <ErrorMessage className="Form-Error" component="span" name="user"/>
+            </div>
+            <div className="Form-Group">
+                <Field className="Form-Field" name="password" placeholder="Password" type="password"/>
+                <ErrorMessage className="Form-Error" component="span" name="password"/>
+            </div>
+            <button className="Form-Btn" type="submit">Login</button>
+        </FormikForm>
     </Formik>
 )
 
